@@ -5,7 +5,7 @@ static RNum *num;
 
 bool test_r_num_units() {
 	char *buf[32];
-    //1200 / 1024 = 1.171875
+	//1200 / 1024 = 1.171875
 	mu_assert_streq (r_num_units ((char *)buf, 1024), "1K", "K");
 	mu_assert_streq (r_num_units ((char *)buf, 1200), "1.2K", "K");
 	mu_assert_streq (r_num_units ((char *)buf, 1024 * 1024), "1M", "M");
