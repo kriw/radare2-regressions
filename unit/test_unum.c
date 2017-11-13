@@ -3,6 +3,18 @@
 
 static RNum *num;
 
+bool test_r_num_units() {
+	char *buf[32];
+    //1200 / 1024 = 1.171875
+	mu_assert_streq (r_num_units ((char *)buf, 1024), "1K", "K");
+	mu_assert_streq (r_num_units ((char *)buf, 1200), "1.2K", "K");
+	mu_assert_streq (r_num_units ((char *)buf, 1024 * 1024), "1M", "M");
+	mu_assert_streq (r_num_units ((char *)buf, 1200 * 1024), "1.2M", "M");
+	mu_assert_streq (r_num_units ((char *)buf, 1024 * 1024 * 1024), "1G", "G");
+	mu_assert_streq (r_num_units ((char *)buf, 1200 * 1024 * 1024), "1.2G", "G");
+	mu_end;
+}
+
 bool test_r_num_minmax_swap_i() {
 	int a = -1, b = 2;
 	r_num_minmax_swap_i (&a, &b);
@@ -35,6 +47,7 @@ bool test_r_num_between() {
 }
 
 bool all_tests() {
+	test_r_num_units ();
 	test_r_num_minmax_swap_i ();
 	test_r_num_minmax_swap ();
 	test_r_num_between ();
