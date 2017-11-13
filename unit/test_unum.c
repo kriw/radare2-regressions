@@ -18,20 +18,20 @@ bool test_r_num_units() {
 bool test_r_num_minmax_swap_i() {
 	int a = -1, b = 2;
 	r_num_minmax_swap_i (&a, &b);
-	mu_assert_eq (a == -1 && b == 2, 1, "a < b");
+	mu_assert_eq (a == -1 && b == 2, 1, "a < b -> a < b");
 	a = 2, b = -1;
 	r_num_minmax_swap_i (&a, &b);
-	mu_assert_eq (a == -1 && b == 2, 1, "a < b");
+	mu_assert_eq (a == -1 && b == 2, 1, "b < a -> a < b");
 	mu_end;
 }
 
 bool test_r_num_minmax_swap() {
 	ut64 a = 1, b = 2;
 	r_num_minmax_swap (&a, &b);
-	mu_assert_eq (a == 1 && b == 2, 1, "minmax_swap, a < b -> a < b");
+	mu_assert_eq (a == 1 && b == 2, 1, "a < b -> a < b");
 	a = 2, b = 1;
 	r_num_minmax_swap (&a, &b);
-	mu_assert_eq (a == 1 && b == 2, 1, "minmax_swap, b < a -> a < b");
+	mu_assert_eq (a == 1 && b == 2, 1, "b < a -> a < b");
 	mu_end;
 }
 
