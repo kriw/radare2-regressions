@@ -81,7 +81,7 @@ bool test_r_num_str_split_list() {
 	char *s;
 	char *str = malloc (0x20);
 	strcpy (str, "1 1 + 2 1 + (2 + 3) 4 ");
-	//expected {"1", "1 + 2", "1 + (2 + 3)", "5"} as list
+	//expected {"1", "1 + 2", "1 + (2 + 3)", "4"} as list
 	RList *list = r_num_str_split_list (str);
 	mu_assert_eq (r_list_length (list), 4, "r_list_length (list) == 4");
 	s = (char *)r_list_pop_head (list);
